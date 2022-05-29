@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헬라시아 퀘스트 생성기</title>
+    
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        @font-face {
+            src: url('grandfather.ttf');
+            font-family: 'grandfather';
+        }
+
+        @font-face {
+            src: url('HeirofLightRegular.ttf');
+            font-family: 'HeirofLightRegular';
+        }
+
+        #main_image{
+            background-image: url('BAND_헬라시아 사가_2022-04-29-21-37-45.jpg');
+            width: 1280px;
+            height: 914px;
+            float: left;
+        }
+
+        #controll_board{
+            background-color: blanchedalmond;
+            width: 300px;
+            height: 914px;
+        }
+
+        #right{
+            top: 100px;
+            left: 650px;
+            width: 600px;
+            height: 714px;
+        }
+
+        #textBlock{
+            display: inline-block;
+            position: absolute;
+            top: 52px;
+            left: 40px;
+            height: 800px;
+            width: 570px;
+        }
+
+        .rela{
+            position: relative;
+            display: inline-block;
+        }
+
+        .tag{
+            display: inline-block;
+            position: absolute;
+        }
+
+        #title{
+            top: 100px;
+            left: calc(50%);
+            font-size: 48px;
+            font-family: 'HeirofLightRegular';
+        }
+
+        #subTitle{
+            top: 170px;
+            left: calc(50%);
+            font-size: 24px;
+            font-family: 'HeirofLightRegular';
+        }
+
+        #guild{
+            font-size: 24px;
+            font-family: 'HeirofLightRegular';
+            left: calc(50% - 74.525px);
+            top: 575px;
+        }
+
+        #diff{
+            top: 220px;
+            right: 100px;
+            font-size: 26px;
+            font-family: 'HeirofLightRegular';
+        }
+
+        #textField{
+            top: 300px;
+            left: calc(50% - 250px);
+            font-size: 36px;
+            width: 500px;
+            height: 300px;
+            font-size: 26px;
+            text-align: center;
+            font-family: 'grandfather';
+        }
+
+        #stamp{
+            width: 100px;
+            height: 100px;
+            background-image: url('stamp.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+            top: 550px;
+            right: 50px;
+        }
+
+        #logo{
+            width: 100px;
+            height: 100px;
+            background-image: url('BAND_헬라시아 사가_2022-05-01-00-48-12 - 복사본 (2).png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+        }
+
+        .text_line{
+            width: auto;
+            height: auto;
+            display: block;
+            position: relative;
+            font-size: 28px;
+            font-family: 'HeirofLightRegular';
+            margin-bottom:20px;
+            word-break: break-all;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="main_image" class="rela">
+        <div id="textBlock">
+            <label id="title" class="tag">temp</label>
+            <label id="subTitle" class="tag">부제목</label>
+            <label id="diff" class="tag">난이도</label>
+            <label id="guild" class="tag">프론티어 길드</label>
+
+            <div id="textField" class="tag" ></div>
+
+            <div id="stamp" class="tag"></div>
+            <!-- <div id="logo" class="tag"></div> -->
+        </div>
+        <div id="right" class="rela">
+            <label id='i1' class="text_line" for="">제목 - </label>
+            <label id='i2' class="text_line" for="">보상 - </label>
+            <label id='i3' class="text_line" for="">종류 - </label>
+            <label id='i4' class="text_line" for="">수준 - </label>
+            <label id='i5' class="text_line" for="">제한 - </label>
+            <label id='i6' class="text_line" for="">지역 - </label>
+            <label id='i7' class="text_line" for="">목표 - </label>
+            <label id='i8' class="text_line" for="">상세 - </label>
+        </div>
+    </div>
+    
+    <div id="controll_board" class="rela">
+        타이틀<input type="text" id="tf_title" class="rela"><br>
+        소제목<input type="text" id="tf_st" class="rela"><br>
+        난이도<input type="text" id="tf_diff" class="rela"><br>
+        텍스트에어리어<textarea name="" id="tf_tf" class="rela" cols="30" rows="10"></textarea><br><br><br>
+        <div id="text_field_box">
+            <!-- 제목<input type="text" id="1" class="rela"><br> -->
+            보상<input type="text" id="2" class="rela"><br>
+            종류<input type="text" id="3" class="rela"><br>
+            <!-- 수준<input type="text" id="4" class="rela"><br> -->
+            제한<input type="text" id="5" class="rela"><br>
+            지역<input type="text" id="6" class="rela"><br>
+            목표<input type="text" id="7" class="rela"><br>
+            
+            상세<textarea name="" id="8" class="rela" cols="30" rows="10"></textarea><br><br><br>
+        </div>
+        <input type="button" id="accept" value="적용" >
+    </div>
+</body>
+<script>
+    var button = document.getElementById('accept');
+    var title = document.getElementById('title');
+    var subTitle = document.getElementById('subTitle');
+    var diff = document.getElementById('diff');
+    var textField = document.getElementById('textField')
+
+    var tf_title = document.getElementById('tf_title');
+    var tf_st = document.getElementById('tf_st');
+    var tf_diff = document.getElementById('tf_diff');
+    var tf_tf = document.getElementById('tf_tf');
+
+    //써지는곳
+    //var i1 = document.getElementById('i1');
+    var i2 = document.getElementById('i2');
+    var i3 = document.getElementById('i3');
+    var i4 = document.getElementById('i4');
+    var i5 = document.getElementById('i5');
+    var i6 = document.getElementById('i6');
+    var i7 = document.getElementById('i7');
+    var i8 = document.getElementById('i8');
+
+    //입력하는곳
+    //var v1 = document.getElementById('1');
+    var v2 = document.getElementById('2');
+    var v3 = document.getElementById('3');
+    //var v4 = document.getElementById('4');
+    var v5 = document.getElementById('5');
+    var v6 = document.getElementById('6');
+    var v7 = document.getElementById('7');
+    var v8 = document.getElementById('8');
+
+    //v1.addEventListener('keyup',clickBtn);
+    v2.addEventListener('keyup',clickBtn);
+    v3.addEventListener('keyup',clickBtn);
+    //v4.addEventListener('keyup',clickBtn);
+    v5.addEventListener('keyup',clickBtn);
+    v6.addEventListener('keyup',clickBtn);
+    v7.addEventListener('keyup',clickBtn);
+    v8.addEventListener('keyup',clickBtn);
+
+    console.log(button);
+    button.addEventListener('click',clickBtn);
+
+    tf_title.addEventListener('keyup',clickBtn);
+    tf_st.addEventListener('keyup',clickBtn);
+    tf_diff.addEventListener('keyup',clickBtn);
+    tf_tf.addEventListener('keyup',clickBtn);
+
+    function clickBtn(e){
+        console.log('템프트');
+        //텍스트 삽입부분
+        title.innerHTML = tf_title.value;
+        subTitle.innerHTML = tf_st.value;
+        diff.innerHTML = tf_diff.value;
+
+        i1.innerHTML = '제목 - '+tf_title.value;
+        i2.innerHTML = '보상 - '+v2.value;
+        i3.innerHTML = '종류 - '+v3.value;
+        i4.innerHTML = '수준 - '+tf_diff.value;
+        i5.innerHTML = '제한 - '+v5.value;
+        i6.innerHTML = '지역 - '+v6.value;
+        i7.innerHTML = '목표 - '+v7.value;
+
+
+
+
+
+        //////////
+        var lines = tf_tf.value.split("\n");
+        var resultString  = "<p>";
+
+        for (var i = 0; i < lines.length; i++) {
+        resultString += lines[i] + "<br />";
+        }
+        resultString += "</p>";
+
+        textField.innerHTML  =  resultString; 
+
+
+        var lines2 = v8.value.split("\n");
+        var resultString2  = "<p>상세 - ";
+
+        for (var i = 0; i < lines2.length; i++) {
+        resultString2 += lines2[i] + "<br />";
+        }
+        resultString2 += "</p>";
+
+        i8.innerHTML  =  resultString2; 
+        //////////
+
+
+        title.style.left = 285-title.offsetWidth/2+'px';
+        subTitle.style.left = 285-subTitle.offsetWidth/2+'px';
+
+       
+    }
+</script>
+</html>
